@@ -1,23 +1,17 @@
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.open;
-
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
-import java.util.Random;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 
 public class Tests extends OpeningPage {
 
     @Test
     public void searchProduct() {
-        openMainURL();
+        openURL("https://www.screwfix.com/");
         HomePage homePage = new HomePage();
         ProductPage productPage = new ProductPage();
         homePage.clickAcceptCookiesButton();
         homePage.searchProduct();
-        Assert.assertTrue(productPage.getProductDescription());
+        Assert.assertEquals("Bath Waste with Plug & Chain 16\"",
+                productPage.getProductDescription1());
     }
 
     @Test
@@ -27,25 +21,13 @@ public class Tests extends OpeningPage {
         RegisterPage registerPage = new RegisterPage();
         SecureCheckoutPage secureCheckoutPage = new SecureCheckoutPage();
         PaymentCardsPage paymentCardsPage = new PaymentCardsPage();
-        openLoginPage();
+        openURL("https://www.screwfix.com/login/");
         homePage.clickAcceptCookiesButton();
-        registerPage.clickRegisterButton();
-        registerPage.inputRegisterEmail();
-        registerPage.clickContinueButton();
-        registerPage.clickOnTitleDropdownMrField();
-        registerPage.inputRandomFirstName();
-        registerPage.inputRandomLastName();
-        registerPage.clickOnProfessionDropdownAndChooseDiyField();
-        registerPage.inputPostcode();
-        registerPage.clickFindAddressButton();
-        registerPage.clickAddressSearchResultDropdownAndChooseCetsatLtdField();
-        registerPage.inputPasswordField();
-        registerPage.inputReTypePasswordField();
-        registerPage.clickRegisterNowButton();
-        Assert.assertTrue(registerPage.registerCompleteText());
+        registerPage.fillRequiredFieldDuringRegistration();
+        Assert.assertEquals("THANK YOU", registerPage.registerCompleteText1());
         registerPage.clickContinueShoppingButton();
         homePage.searchProduct();
-        Assert.assertTrue(productPage.getProductDescription());
+        Assert.assertEquals("BATH WASTE WITH PLUG & CHAIN 16\" (91024)", productPage.getProductDescription1());
         productPage.clickDeliverButton();
         productPage.clickCheckoutNowButton();
         productPage.clickContinueToPayment();
@@ -54,13 +36,7 @@ public class Tests extends OpeningPage {
         secureCheckoutPage.clickDeliveryOptionsForThisDayButton();
         secureCheckoutPage.clickPayWithCardRadioButton();
         secureCheckoutPage.clickTypeCardVisaButton();
-        secureCheckoutPage.inputNameOnCardField();
-        secureCheckoutPage.inputCardNumberField();
-        secureCheckoutPage.clickExpireDateDropdown();
-        secureCheckoutPage.clickChooseMonth();
-        secureCheckoutPage.clickYearExpireDateDropdown();
-        secureCheckoutPage.clickChooseYear();
-        secureCheckoutPage.inputSecurityCode();
+        secureCheckoutPage.fillingInCardData();
         secureCheckoutPage.clickBillingAddress();
         secureCheckoutPage.clickCheckboxSaveCard();
         secureCheckoutPage.clickFirstContinueButton();
@@ -68,6 +44,6 @@ public class Tests extends OpeningPage {
         secureCheckoutPage.clickLogoScrewFix();
         homePage.clickAccountHeader();
         homePage.clickPaymentCardsField();
-        Assert.assertTrue(paymentCardsPage.numberCardCheck());
+        Assert.assertEquals("**** **** **** 1111", paymentCardsPage.numberCardCheck());
     }
 }

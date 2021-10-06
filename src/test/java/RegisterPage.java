@@ -11,7 +11,8 @@ public class RegisterPage {
 
     private SelenideElement registerButton = $x("//button[@value='Register now']");
     private SelenideElement registerField = $x("//input[@id='email-input']");
-    private SelenideElement continueButton = $(By.xpath("//button[@id='continueRegistrationButton']"));
+    private SelenideElement continueButton = $(
+            By.xpath("//button[@id='continueRegistrationButton']"));
     private SelenideElement titleDropdown = $x("//select[@id='newTitle']");
     private SelenideElement chooseMrInDropdown = $x(" //option[@value='Mr']");
     private SelenideElement firstNameField = $x("//input[@id='firstName']");
@@ -20,13 +21,15 @@ public class RegisterPage {
     private SelenideElement chooseDiyInDropdown = $x("//option[@value='11']");
     private SelenideElement postcodeField = $x("//input[@id='contact-search-postcode']");
     private SelenideElement findAddressButton = $x("//button[@data-value='find address']");
-    private SelenideElement addressSearchResultDropdown = $x("//select[@id='contact-address-result-select']");
+    private SelenideElement addressSearchResultDropdown = $x(
+            "//select[@id='contact-address-result-select']");
     private SelenideElement chooseCetsatLtdInDropdown = $x("//option[@id='ADDRESS_0']");
     private SelenideElement passwordField = $x("//input[@id='password']");
     private SelenideElement reTypePasswordField = $x("//input[@id='retypePassword']");
     private SelenideElement registerNowButton = $x("//button[@id='registerNowButton']");
     private SelenideElement continueShoppingButton = $x("//a[@title='Continue shopping']");
     private SelenideElement registerComplete = $x("//span[@class='h1']");
+
     public void clickRegisterButton() {
         registerButton.click();
     }
@@ -74,23 +77,48 @@ public class RegisterPage {
         chooseCetsatLtdInDropdown.click();
 
     }
+
     public void inputPasswordField() {
         passwordField.setValue("12345678");
     }
+
     public void inputReTypePasswordField() {
         reTypePasswordField.setValue("12345678");
     }
+
     public void clickRegisterNowButton() {
-        registerNowButton.doubleClick();
+
+        registerNowButton.click();
     }
 
     public void clickContinueShoppingButton() {
-       continueShoppingButton.click();
+        continueShoppingButton.waitUntil(Condition.visible, 3000).click();
     }
 
 
     public boolean registerCompleteText() {
-        registerComplete.waitUntil(Condition.visible, 60000).shouldHave(text("Thank you"));
+        registerComplete.waitUntil(Condition.visible, 6000).shouldHave(text("Thank you"));
         return true;
+    }
+    public String registerCompleteText1() {
+       return  registerComplete.getText();
+
+    }
+
+    public void fillRequiredFieldDuringRegistration() {
+        clickRegisterButton();
+        inputRegisterEmail();
+        clickContinueButton();
+        clickOnTitleDropdownMrField();
+        inputRandomFirstName();
+        inputRandomLastName();
+        clickOnProfessionDropdownAndChooseDiyField();
+        inputPostcode();
+        clickFindAddressButton();
+        clickAddressSearchResultDropdownAndChooseCetsatLtdField();
+        inputPasswordField();
+        inputReTypePasswordField();
+        clickRegisterNowButton();
+
     }
 }

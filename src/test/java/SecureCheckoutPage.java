@@ -1,6 +1,5 @@
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.switchTo;
@@ -9,13 +8,12 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import java.util.List;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 public class SecureCheckoutPage {
 
     private SelenideElement deliveryAddress = $(By.xpath("//a[@class='btn btn--addr fill text-left']"));
-    private List<SelenideElement> listsDates = $$x("//div[@class='lg-3 md-6 sm-12 cols']");
-    private SelenideElement deliveryOptionsForThisDayButton = $x("//button[@id='deliveryServiceTile_3']");
+    private List<SelenideElement> listsDates = $$x("//button[@class='btn btn--date fill']");
+    private SelenideElement deliveryOptionsForThisDayButton = $x("//button[@id='deliveryServiceTile_1']");
     private SelenideElement payWithCardRadioButton = $x("//span[@class='h3']");
     private SelenideElement typeCardVisaButton = $x("//button[@data-value='visa']");
     private SelenideElement nameOnCardField = $x("//input[@id='new-card-name']");
@@ -32,19 +30,19 @@ public class SecureCheckoutPage {
 
 
     public void clickDeliveryAddress() {
-        deliveryAddress.waitUntil(Condition.visible, 60000).click();
+        deliveryAddress.waitUntil(Condition.visible, 6000).click();
     }
     public void chooseTomorrowDate(){
-        listsDates.get(0).waitUntil(Condition.visible, 60000).click();
+        listsDates.get(0).click();
     }
     public void clickDeliveryOptionsForThisDayButton() {
-        deliveryOptionsForThisDayButton.waitUntil(Condition.visible, 60000).click();
+        deliveryOptionsForThisDayButton.waitUntil(Condition.visible, 6000).click();
     }
     public void clickPayWithCardRadioButton() {
-       payWithCardRadioButton.waitUntil(Condition.visible, 60000).click();
+       payWithCardRadioButton.waitUntil(Condition.visible, 6000).click();
     }
     public void clickTypeCardVisaButton() {
-        typeCardVisaButton.waitUntil(Condition.visible, 60000).click();
+        typeCardVisaButton.waitUntil(Condition.visible, 6000).click();
     }
     public void inputNameOnCardField() {
         switchTo().frame(1);
@@ -60,7 +58,7 @@ public class SecureCheckoutPage {
         chooseMonth.click();
     }
     public void clickYearExpireDateDropdown() {
-        monthExpireDateDropdown.click();
+        yearExpireDateDropdown.click();
     }
     public void clickChooseYear() {
         chooseYear.click();
@@ -73,18 +71,26 @@ public class SecureCheckoutPage {
         billingAddress.click();
     }
     public void clickCheckboxSaveCard() {
-        if(!checkboxSaveCard.isSelected()){
-            checkboxSaveCard.waitUntil(Condition.visible, 60000).click();
-        }
+       // if(!checkboxSaveCard.isSelected()){
+            checkboxSaveCard.waitUntil(Condition.visible, 6000).click();
+       // }
     }
     public void clickFirstContinueButton() {
-        listContinueButton.get(1).waitUntil(Condition.visible, 60000).click();
+        listContinueButton.get(1).waitUntil(Condition.visible, 6000).click();
     }
     public void clickSecondContinueButton() {
-        listContinueButton.get(0).waitUntil(Condition.visible, 60000).click();
+        listContinueButton.get(0).waitUntil(Condition.visible, 6000).click();
     }
     public void clickLogoScrewFix() {
-        logoScrewFix.waitUntil(Condition.visible, 60000).click();
+        logoScrewFix.waitUntil(Condition.visible, 6000).click();
     }
-
+    public void fillingInCardData(){
+        inputNameOnCardField();
+        inputCardNumberField();
+        clickExpireDateDropdown();
+        clickChooseMonth();
+        clickYearExpireDateDropdown();
+        clickChooseYear();
+        inputSecurityCode();
+    }
 }

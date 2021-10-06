@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4830e635-c575-4137-803b-bacac42ec204" name="Default Changelist" comment="" />
+    <list default="true" id="4830e635-c575-4137-803b-bacac42ec204" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/OpeningPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OpeningPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PaymentCardsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PaymentCardsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ProductPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ProductPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RegisterPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SecureCheckoutPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SecureCheckoutPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +27,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1xZgPrOHp3ONvt7Wu8aZjIqNlcf" />
   <component name="ProjectViewState">

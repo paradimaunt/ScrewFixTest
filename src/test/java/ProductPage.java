@@ -1,9 +1,6 @@
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 
 public class ProductPage extends OpeningPage {
 
@@ -12,17 +9,20 @@ public class ProductPage extends OpeningPage {
     private SelenideElement checkoutNowButton = $x("//button[@id='checkout_now_btn']");
     private SelenideElement continueToPayment = $x("//button[@id='topCheckoutButton']");
 
-    public boolean getProductDescription() {
-        productDescription.shouldHave(text("Bath Waste with Plug & Chain 16\""));
-        return true;
+
+    public String getProductDescription1() {
+        return productDescription.getText();
     }
-    public void clickDeliverButton(){
+
+    public void clickDeliverButton() {
         deliverButton.click();
     }
-    public void clickCheckoutNowButton(){
+
+    public void clickCheckoutNowButton() {
         checkoutNowButton.click();
     }
-    public void clickContinueToPayment(){
+
+    public void clickContinueToPayment() {
         continueToPayment.click();
     }
 
